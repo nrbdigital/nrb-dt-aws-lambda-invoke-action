@@ -1,11 +1,24 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'AWS Lambda Invoker'
+description: 'Call a lamba function synchrously'
+author: 'Bruno Franki'
 inputs:
-  milliseconds: # change this
+  function-name:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: 'The name of the lambda to invoke'
+  payload-file:
+    required: false
+    description: 'The file containing the payload of the request. One of payload-file or payload is mandatory'
+  payload:
+    required: false
+    description: 'the JSON payload. One of payload-file or payload is mandatory' 
+  aws-region:
+    required: false
+    description: 'The AWS region'
+    default: 'eu-est-1'
+outputs:
+  result:
+    description: 'the lambda result'
+     
 runs:
   using: 'node16'
   main: 'dist/index.js'

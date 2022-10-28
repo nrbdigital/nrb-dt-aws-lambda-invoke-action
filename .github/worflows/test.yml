@@ -19,6 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.OI_AWS_ACCESS_KEY_ID_DEV }}
+          aws-secret-access-key: ${{ secrets.OI_AWS_SECRET_ACCESS_KEY_DEV }}
+          aws-region: eu-west-1      
       - uses: ./
         with:
-          milliseconds: 1000
+          function-name: spring-batch-management
+          payload-file: __tests__/batch.json
