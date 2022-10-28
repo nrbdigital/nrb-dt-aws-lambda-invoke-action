@@ -16,7 +16,7 @@ Call a lamba function synchrously
 ## Example usage
 
 ```yaml
-uses: brunofrankinrb/nrb-dt-aws-lambda-invoke-action@v1
+uses: brunofrankinrb/nrb-dt-aws-lambda-invoke-action@main
 with:
   function-name: spring-batch-management
   payload-file: src/config/batch-dev.json
