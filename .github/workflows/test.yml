@@ -27,7 +27,7 @@ jobs:
           aws-region: eu-west-1
       - name: Deploy on OI batch
         run: |
-            aws s3 ls      
+            aws sts get-caller-identity     
       - uses: ./
         with:
           function-name: spring-batch-management
